@@ -1,4 +1,4 @@
-# OpenWrt luci feed
+# OpenWrt luci feed release-2023
 
 ## Description
 
