@@ -3335,6 +3335,73 @@ msgstr "不监听这些接口。"
 msgid "After setting the Tagname, fill in the corresponding Tag name in the Static Address Allocation section below"
 msgstr "设置tagname后在下面的静态地址分配栏里填入对应的Tag name"
 
+msgid "Suppress logging"
+msgstr "不记录日志"
+
+msgid "Suppress logging of the routine operation of these protocols"
+msgstr "不记录这些协议的常规操作日志"
+
+msgid "Allocate IP sequentially"
+msgstr "顺序分配 IP"
+
+msgid "Allocate IP addresses sequentially, starting from the lowest available address"
+msgstr "从最低可用地址开始顺序分配 IP 地址"
+
+msgid "Size of DNS query cache"
+msgstr "DNS 查询缓存的大小"
+
+msgid "Number of cached DNS entries (max is 10000, 0 is no caching)"
+msgstr "缓存的 DNS 条目数量（最大 10000，0 表示不缓存）"
+
+msgid "Required. Base64-encoded private key for this interface."
+msgstr "必填项。此接口的 Base64 编码私钥。"
+
+msgid "Optional. UDP port used for outgoing and incoming packets."
+msgstr "可选，用于传出和传入数据包的 UDP 端口。"
+
+msgid "IP addresses of this WireGuard interface. Both IPv4 and IPv6 addresses are supported. Important: Must include subnet mask (e.g., 10.0.0.2/24)"
+msgstr "WireGuard接口的IP地址。支持IPv4和IPv6两种地址格式。重要提示：必须包含子网掩码（例如：10.0.0.2/24）"
+
+msgid "Configure remote peers. Each peer requires its own public key and allowed IPs."
+msgstr "配置远程对等端。每个对等端都需要独立的公钥和允许的IP地址范围。"
+
+
+msgid "Required. Public key of the remote peer. This must be the key generated on the peer device, not your own key."
+msgstr "必填项。远程对等端的公钥，此处必须填写在对等端设备上生成的密钥，而非您本地的密钥。"
+
+msgid "Required. IP addresses that this peer is allowed to use. Critical: Use /32 for single IP (e.g., 10.0.0.3/32), not /24. Using /24 will cause routing issues!"
+msgstr "必填项。该对等端允许使用的IP地址。关键提示：单个IP必须使用/32子网掩码（例如：10.0.0.3/32），请勿使用/24，否则将导致路由问题！"
+
+msgid "Optional. Create routes for Allowed IPs for this peer."
+msgstr "可选，为此对端创建允许 IP 的路由。"
+
+msgid "Route Allowed IPs"
+msgstr "路由允许的 IP"
+
+msgid "Endpoint Host"
+msgstr "端点主机"
+
+msgid "Required for outgoing connection. IP address or hostname of the remote peer. In LAN tests, use the peer's LAN IP (e.g., 192.168.1.x)."
+msgstr "可选，为此对端创建允许 IP 的路由(例如： 192.168.1.x)。"
+
+msgid "Endpoint Port"
+msgstr "端点端口"
+
+msgid "Port of remote peer (default: 51820)."
+msgstr "远程对等端的端口号（默认端口：51820）。"
+
+msgid "Persistent Keep Alive"
+msgstr "持续 Keep-Alive"
+
+msgid "Optional. Seconds between keep alive messages. Set to 25 if peer is behind NAT. Set to 0 to disable."
+msgstr ""
+"可选，Keep-Alive 消息之间的秒数，默认为 0（禁用）。如果此设备位于 NAT 之后，"
+"建议使用的值为 25。"
+
+msgid "Optional. Adds in an additional layer of symmetric-key cryptography for post-quantum resistance."
+msgstr "可选，增加一层对称密钥加密，以提供后量子安全保障。"
+
+
 #~ msgid "CPU frequency"
 #~ msgstr "CPU 频率"
 
