@@ -1,0 +1,43 @@
+#!/bin/sh
+
+uci set network.wg="interface"
+uci set network.wg.ifname="wg"
+uci set network.wg.proto="wireguard"
+uci commit network;
+/etc/init.d/network reload
+
+uci delete firewall.wireguard
+uci add firewall rule 
+uci rename firewall.@rule[-1]="wireguard"
+uci set firewall.@rule[-1].name="wireguard"
+uci set firewall.@rule[-1].target="ACCEPT"
+uci set firewall.@rule[-1].src="wan"
+uci set firewall.@rule[-1].proto="udp"
+uci set firewall.@rule[-1].dest_port="51820"
+
+uci delete firewall.wireguard
+uci delete firewall.wireguardwan
+uci delete firewall.wireguardlan
+uci commit firewall
+
+uci add firewall zone
+uci rename firewall.@zone[-1]="wireguard"
+uci set firewall.@zone[-1].name="wireguard"
+uci set firewall.@zone[-1].input="ACCEPT"
+uci set firewall.@zone[-1].forward="ACCEPT"
+uci set firewall.@zone[-1].output="ACCEPT"
+uci set firewall.@zone[-1].masq="1"
+uci set firewall.@zone[-1].network="wg"
+uci add firewall forwarding
+uci rename firewall.@forwarding[-1]="wireguardwan"
+uci set firewall.@forwarding[-1].src="wireguard"
+uci set firewall.@forwarding[-1].dest="wan"
+uci add firewall forwarding
+uci rename firewall.@forwarding[-1]="wireguardlan"
+uci set firewall.@forwarding[-1].src="wireguard"
+uci set firewall.@forwarding[-1].dest="lan"
+uci commit firewall;
+/etc/init.d/firewall restart
+
+rm -f /tmp/luci-indexcache
+exit 0
